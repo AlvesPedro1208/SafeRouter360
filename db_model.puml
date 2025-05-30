@@ -1,0 +1,38 @@
+@startuml
+' Modelo de Dados - SafeRoute360
+
+entity Sensor {
+  *id: int <<PK>>
+  localizacao: string
+  nivel_cm: decimal
+  data_hora: datetime
+}
+
+entity Alerta {
+  *id: int <<PK>>
+  id_sensor: int <<FK>>
+  nivel_cm: decimal
+  mensagem: string
+  data_hora: datetime
+}
+
+entity Abrigo {
+  *id: int <<PK>>
+  nome: string
+  localizacao: string
+  capacidade: int
+  ocupacao_atual: int
+}
+
+entity RelatorioSimulacao {
+  *id: int <<PK>>
+  data_execucao: datetime
+  total_sensores: int
+  total_alertas: int
+  sensores_criticos: int
+}
+
+Sensor ||--o{ Alerta : gera
+Sensor ||--o{ RelatorioSimulacao : participa
+Abrigo ||--o{ RelatorioSimulacao : pode_estimar
+@enduml
