@@ -5,6 +5,29 @@ import java.util.Scanner;
 
 public class AbrigoDAO {
 
+    public static void criarTabelaAbrigos() {
+        String sql = """
+            CREATE TABLE abrigos (
+                id          INTEGER PRIMARY KEY,
+                nome        VARCHAR2(120)   NOT NULL,
+                endereco    VARCHAR2(255)   NOT NULL,
+                capacidade_maxima  NUMBER          NOT NULL,
+                ocupacao_atual    NUMBER          DEFAULT 0,
+                telefone    VARCHAR2(30),
+            );          
+        """;
+
+        try (Connection conn = ConexaoOracle.conectar();
+             Statement stmt = conn.createStatement()) {
+
+            stmt.execute(sql);
+            System.out.println("✅ Tabela 'abrigos' criada com sucesso!");
+
+        } catch (SQLException e) {
+            System.err.println("❌ Erro ao criar tabela: " + e.getMessage());
+        }
+    }
+
     private static final Scanner sc = new Scanner(System.in);
 
     /* ------------------------------------------------------------------
