@@ -15,8 +15,10 @@ public class ServidorHttp {
 
         server.createContext("/sensores", new SensorHandler()); // GET
         server.createContext("/alertas", new AlertaHandler()); // GET
+        server.createContext("/abrigos", new AbrigoHandler()); // GET
 
         server.createContext("/sensores/post", new SensorPostHandler()); // POST
+
 
         server.setExecutor(null); // executor padrão
         server.start();
