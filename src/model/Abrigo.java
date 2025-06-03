@@ -11,7 +11,7 @@ import java.sql.SQLException;
  */
 public class Abrigo {
 
-    /* Atributos */
+    /* aAtributos */
     private int idAbrigo;
     private String nome;
     private String endereco;
