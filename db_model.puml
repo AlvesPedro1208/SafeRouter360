@@ -22,17 +22,9 @@ entity Abrigo {
   localizacao: string
   capacidade: int
   ocupacao_atual: int
-}
-
-entity RelatorioSimulacao {
-  *id: int <<PK>>
-  data_execucao: datetime
-  total_sensores: int
-  total_alertas: int
-  sensores_criticos: int
+  telefone: string
 }
 
 Sensor ||--o{ Alerta : gera
-Sensor ||--o{ RelatorioSimulacao : participa
-Abrigo ||--o{ RelatorioSimulacao : pode_estimar
+
 @enduml

@@ -1,9 +1,7 @@
 package server;
 
 import com.sun.net.httpserver.HttpServer;
-import controller.AlertaHandler;
-import controller.SensorHandler;
-import controller.SensorPostHandler;
+import controller.*;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -19,6 +17,8 @@ public class ServidorHttp {
 
         server.createContext("/sensores/post", new SensorPostHandler()); // POST
 
+        server.createContext("/sensores/delete", new SensorDeleteHandler());
+        server.createContext("/abrigos/delete", new AbrigoDeleteHandler());
 
         server.setExecutor(null); // executor padrão
         server.start();

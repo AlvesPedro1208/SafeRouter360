@@ -4,6 +4,8 @@ import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
+import dao.ConexaoOracle;
+import model.SensorRequest;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
